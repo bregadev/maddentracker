@@ -1,0 +1,22 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-reacttracker-dev-121708-authRole",
+      "UnauthRoleArn": "arn:aws:iam::033584481511:role/amplify-reacttracker-dev-121708-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::033584481511:role/amplify-reacttracker-dev-121708-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-reacttracker-dev-121708-deployment",
+      "UnauthRoleName": "amplify-reacttracker-dev-121708-unauthRole",
+      "StackName": "amplify-reacttracker-dev-121708",
+      "StackId": "arn:aws:cloudformation:us-east-2:033584481511:stack/amplify-reacttracker-dev-121708/d812d490-f064-11ea-bd73-027e611afa34",
+      "AmplifyAppId": "d30repqtwjwz5g"
+    },
+    "categories": {
+      "auth": {
+        "reacttrackera957cc2b": {
+          "hostedUIProviderCreds": "[]"
+        }
+      }
+    }
+  }
+}

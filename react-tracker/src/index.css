@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
+
+body {
+  font-family: "Quicksand", sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  color: #4d4d4d;
+  
+  
+}
+
+#title {
+  text-align: center;
+}
+
+#games {
+  border-collapse: collapse;
+  border: 3px solid #ddd;
+}
+
+#games td,
+#games th {
+  border: 1px solid #ddd;
+  padding: 12px;
+}
+
+#games tr:hover {
+  background-color: #ddd;
+}
+
+#games th {
+  padding: 10px;
+  text-align: center;
+  background-color: #2303b1;
+  color: white;
+}
+
+.opration {
+  text-align: center;
+}
+
+.button {
+  border: none;
+  outline: none;
+  font-size: 15px;
+  font-family: "Quicksand", sans-serif;
+  color: #f44336;
+  padding: 3px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid #f44336;
+  background-color: transparent;
+}
+
+.button:active {
+  border: 1px solid blue;
+}
+
+#submit {
+  background-color: #081ee9; /* Green */
+  border: none;
+  color: white;
+  padding: 2px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+}
