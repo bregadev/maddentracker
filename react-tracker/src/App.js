@@ -45,26 +45,26 @@ function App() {
 
 
 
-    function newGame() {
-      let winner = prompt('Enter winner');
-      let loser = prompt('Enter loser');
-      let winning_score = prompt('enter winning score')
-      let losing_score = prompt('enter losing score');
-      fetch('http://localhost:3001/games', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({winner,loser,winning_score,losing_score}),
-      })
-        .then(response => {
-          return response.text();
-        })
-        .then(data => {
-          alert(data);
-          newGame();
-        });
-    }
+    // function newGame() {
+    //   let winner = prompt('Enter winner');
+    //   let loser = prompt('Enter loser');
+    //   let winning_score = prompt('enter winning score')
+    //   let losing_score = prompt('enter losing score');
+    //   fetch('http://localhost:3001/games', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify({winner,loser,winning_score,losing_score}),
+    //   })
+    //     .then(response => {
+    //       return response.text();
+    //     })
+    //     .then(data => {
+    //       alert(data);
+    //       newGame();
+    //     });
+    // }
     // function deleteGame() {
     //   let id = prompt('Enter game id');
     //   fetch(`http://localhost:3001/games/${id}`, {

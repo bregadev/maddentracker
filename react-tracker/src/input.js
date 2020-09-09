@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { useState} from 'react'
 import Select from 'react-select'
 
 
@@ -16,27 +16,58 @@ const options = [
   ]
   
 
-class Input extends React.Component{
-    render() {
+function Input (props) {
+    const [winner,setWinner] = useState(" ");
+    const [loser,setLoser] = useState(" ");
+    const [winningScore,setWinningscore] = useState();
+    const [losingScore,setLosingscore] = useState();
+
+    
+      
+      const handleSubmit = (evt) => {
+       
+
+        fetch('https://179rj6bfe2.execute-api.us-east-2.amazonaws.com/dev/newgame', {
+            method: 'POST',
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify( {
+                winner: winner.value,
+                loser: loser.value,
+                winning_Score: winningScore.value,
+                losing_score: losingScore.value
+            })
+        }).then(function(response) {
+            console.log(response)
+            return response.json();
+        });
+
+        evt.preventDefault();
+      }
+    
+    
        return (
 
-        <form>
+        <form onSubmit={handleSubmit}>
             <h3>Enter Game results</h3>
-            <label>Winner: </label>
-            <Select options={options} />
-            <span> Loser: </span>
-            <Select options={options} />
-            <span> Winning Score: </span>
+            <label>Winner: 
+            <Select options={options} value={winner} onChange={setWinner} />
+            </label>
+            <label> Loser: 
+            <Select options={options} value={loser} onChange={setLoser} />
+            </label>
+            <label> Winning Score: 
             <input 
-                type="number" size="10" />
-            <span> Losing Score: </span>
+                type="number" value={winningScore} onSeeked={setWinningscore} size="10" />
+            </label>
+            <label> Losing Score:   
             <input 
-                type= "number"  size="10" />
+                type= "number" value={losingScore} onSeeked={setLosingscore} size="10" />
+            </label>
             <span>  </span>
-            <button id='submit' >  Submit  </button>
+            <input type="submit" id='submit' value="submit"/>
         </form>
        )
-    }
+    
 }
 
 export default Input; 
