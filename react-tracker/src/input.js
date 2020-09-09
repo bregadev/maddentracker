@@ -1,5 +1,6 @@
 import React, { useState} from 'react'
 import Select from 'react-select'
+import axios from 'axios';
 
 
 const options = [
@@ -19,29 +20,30 @@ const options = [
 function Input (props) {
     const [winner,setWinner] = useState(" ");
     const [loser,setLoser] = useState(" ");
-    const [winningScore,setWinningscore] = useState();
-    const [losingScore,setLosingscore] = useState();
+    const [winningScore,setWinningscore] = useState(0);
+    const [losingScore,setLosingscore] = useState(0);
 
-    
+
       
-      const handleSubmit = (evt) => {
+     const handleSubmit = evt => {
+         const data = JSON.stringify( {
+            "winner": winner.value,
+            "loser": loser.value,
+            "winning_score": winningScore,
+            "losing_score": losingScore
+         });
+        let url = 'https://179rj6bfe2.execute-api.us-east-2.amazonaws.com/dev/newgame';
        
-
-        fetch('https://179rj6bfe2.execute-api.us-east-2.amazonaws.com/dev/newgame', {
-            method: 'POST',
-            headers: {'Content-Type':'application/json'},
-            body: JSON.stringify( {
-                winner: winner.value,
-                loser: loser.value,
-                winning_Score: winningScore.value,
-                losing_score: losingScore.value
-            })
-        }).then(function(response) {
+        alert(data);
+        axios.post(url,data
+            )
+        .then(function(response) {
             console.log(response)
-            return response.json();
-        });
-
-        evt.preventDefault();
+        })
+        .catch(function (error) {
+            console.log(error);});
+        
+        
       }
     
     
@@ -57,11 +59,11 @@ function Input (props) {
             </label>
             <label> Winning Score: 
             <input 
-                type="number" value={winningScore} onSeeked={setWinningscore} size="10" />
+                type="number" value={winningScore} onChange={e => setWinningscore(e.target.value)} size="10" />
             </label>
             <label> Losing Score:   
             <input 
-                type= "number" value={losingScore} onSeeked={setLosingscore} size="10" />
+                type= "number" value={losingScore} onChange={e => setLosingscore(e.target.value)} size="10" />
             </label>
             <span>  </span>
             <input type="submit" id='submit' value="submit"/>
