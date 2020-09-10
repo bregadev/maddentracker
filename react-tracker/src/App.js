@@ -2,7 +2,10 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import './index.css'
 import Input from './input.js'
+import Ranks from './ranks.js'
+import Last7 from './last7.js'
 import { withAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
+
    
 function App() {
    
@@ -45,49 +48,22 @@ function App() {
 
 
 
-    // function newGame() {
-    //   let winner = prompt('Enter winner');
-    //   let loser = prompt('Enter loser');
-    //   let winning_score = prompt('enter winning score')
-    //   let losing_score = prompt('enter losing score');
-    //   fetch('http://localhost:3001/games', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify({winner,loser,winning_score,losing_score}),
-    //   })
-    //     .then(response => {
-    //       return response.text();
-    //     })
-    //     .then(data => {
-    //       alert(data);
-    //       newGame();
-    //     });
-    // }
-    // function deleteGame() {
-    //   let id = prompt('Enter game id');
-    //   fetch(`http://localhost:3001/games/${id}`, {
-    //     method: 'DELETE',
-    //   })
-    //     .then(response => {
-    //       return response.text();
-    //     })
-    //     .then(data => {
-    //       alert(data);
-    //       getGame();
-    //     });
-    // }
-
-
-
 return (
 
     <div>
         <AmplifySignOut />
         <Input />
+        <div class="container">
+            <div class="left">
+            <Ranks />
+            </div>
+            <div class="right">
+                <Last7 />
+            </div>
+        </div>
+        
         <div>
-            <h1 id='title'>Madden 21 Games </h1>
+            <h1 id='title'>Madden 21 Game Log </h1>
             <table id='games'>
                 <thead>
                     <tr>{renderHeader()}</tr>

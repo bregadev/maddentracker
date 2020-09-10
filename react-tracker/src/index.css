@@ -10,6 +10,12 @@ body {
   
   
 }
+table {
+  counter-reset: row-num;
+}
+table tr {
+  counter-increment: row-num;
+}
 th {
   text-align: center;
   border: 1px solid black;
@@ -66,6 +72,10 @@ th {
   border: 1px solid blue;
 }
 
+.left { width: 50%; float: left; }
+.right  {width: 50%; float: right; }
+.container { overflow: hidden; }
+
 #submit {
   background-color: #081ee9; /* Green */
   border: none;
@@ -76,3 +86,4 @@ th {
   display: inline-block;
   font-size: 15px;
 }
+

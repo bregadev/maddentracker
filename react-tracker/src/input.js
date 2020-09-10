@@ -34,7 +34,7 @@ function Input (props) {
          });
         let url = 'https://179rj6bfe2.execute-api.us-east-2.amazonaws.com/dev/newgame';
        
-        alert(data);
+        alert('Game Recorded');
         axios.post(url,data
             )
         .then(function(response) {
