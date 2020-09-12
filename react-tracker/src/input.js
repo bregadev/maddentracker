@@ -22,7 +22,7 @@ function Input (props) {
     const [loser,setLoser] = useState(" ");
     const [winningScore,setWinningscore] = useState(0);
     const [losingScore,setLosingscore] = useState(0);
-
+    //const [date, setDate] = useState ('')
 
       
      const handleSubmit = evt => {
@@ -34,11 +34,12 @@ function Input (props) {
          });
         let url = 'https://179rj6bfe2.execute-api.us-east-2.amazonaws.com/dev/newgame';
        
-        alert('Game Recorded');
+      
         axios.post(url,data
             )
         .then(function(response) {
             console.log(response)
+            alert('Game Recorded');
         })
         .catch(function (error) {
             console.log(error);});
@@ -65,7 +66,10 @@ function Input (props) {
             <input 
                 type= "number" value={losingScore} onChange={e => setLosingscore(e.target.value)} size="10" />
             </label>
-            <span>  </span>
+            {/* <label>Game Date:
+            <input type="date" value={date} onchange={e =>setDate(e.target.value)} />
+           </label> */}
+
             <input type="submit" id='submit' value="submit"/>
         </form>
        )

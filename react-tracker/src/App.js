@@ -50,7 +50,7 @@ function App() {
 
 return (
 
-    <div>
+    <div class="frame">
         <AmplifySignOut />
         <Input />
         <div class="container">
