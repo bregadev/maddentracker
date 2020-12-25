@@ -13,7 +13,9 @@ const options = [
     { value: 'SVC', label: 'SVC' },
     { value: 'Noel', label: 'Noel' },
     { value: 'Showtime', label: 'Showtime' },
-    { value: 'OP', label: 'OP' }
+    { value: 'OP', label: 'OP' },
+    { value: 'Justin', label: 'Justin' }
+    
   ]
   
 
@@ -51,7 +53,7 @@ function Input (props) {
        return (
 
         <form onSubmit={handleSubmit}>
-            <h3>Enter Game results</h3>
+            <h3>Enter Game results: </h3>
             <label>Winner: 
             <Select options={options} value={winner} onChange={setWinner} />
             </label>
